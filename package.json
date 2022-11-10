@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "vite build && javascript-obfuscator ./dist/index.js --output ./dist/index.js --simplify false --string-array false",
+    "build": "vite build && javascript-obfuscator ./dist/index.js --output ./dist/index.js --simplify false --string-array true --split-strings true --split-strings-chunk-length 5 --string-array-threshold 1",
     "preview": "vite preview"
   }
 }
