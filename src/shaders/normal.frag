@@ -65,7 +65,8 @@ void main()
         // should obtain the displaced normal from the normal map.
         // This normal will be in the range [0, 1].  You will then
         // need to convert it to be in the range [-1, 1].
-        n = vec3(0, 0, 1);
+        vec3 normal = texture(normalMap, uv).rgb;
+        n = normal * 2.0 - 1.0;
     }
 
     vec3 illumination = vec3(0, 0, 0);

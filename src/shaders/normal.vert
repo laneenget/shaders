@@ -55,7 +55,11 @@ void main()
     // When this part is completed correctly, it will produce
     // a result that looks identical to the Phong shader.
     // Then, you can move on to complete the fragment shader.
-    mat3 tbn = mat3(1.0f);
+    vec3 T = normalize(vec3(normalMatrix * vec4(tangent, 0.0)));
+    vec3 N = normalize(vec3(normalMatrix * vec4(normal, 0.0)));
+    vec3 B = cross(N, T);
+    
+    mat3 tbn = transpose(mat3(T, B, N));
 
     // Compute the tangent space vertex and view positions
     tangentVertPosition = tbn * worldPosition;

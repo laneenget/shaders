@@ -32,9 +32,12 @@ void main()
     // Next, you should set the z-component of the view space normal to zero
     // and then normalize it. This represents the direction outward from the
     // vertex in XY coordinates relative to the camera.
+    vec3 viewPosition = (viewMatrix * vec4(worldPosition, 1)).xyz;
+    vec3 viewNormal = normalize((normalMatrix * vec4(worldNormal, 0)).xyz);
     
     // The view space vertex position should then be translated in this direction
     // by correct distance, which is the thickness of the silhouette online.
+    
 
     // Finally, you should project this position into screen coordinates and
     // assign it to the gl_Position variable, which will be passed to the 
